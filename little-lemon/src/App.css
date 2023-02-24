@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  display: grid;
+}
+.body {
+  display: grid;
 }
 
 .App-logo {
@@ -35,4 +39,31 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  padding: 3rem, 0.5rem, 3rem, 0.5rem;
+}
+
+.nav ul {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.25rem;
+  justify-items: center;
+}
+
+.nav img {
+  justify-self: center;
+  align-self: center;
+}
+
+ul {
+  list-style-type: none;
 }

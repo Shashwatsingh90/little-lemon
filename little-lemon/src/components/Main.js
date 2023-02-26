@@ -30,18 +30,6 @@ const specials = [
 ]
 
 function Main() {
-
-    // const specialsMap = specials.map((special) => {
-
-    //     const specialTitle = special.title
-    //     const specialImg = special.imageSrc
-    //     const specialBlurb = special.blurb
-    //     return <Card
-    //         title={specialTitle}
-    //         imageSrc={specialImg}
-    //         blurb={specialBlurb}
-    //     ></Card>
-    // })
     return (
         <main className='main'>
             <section className='mainTop'>

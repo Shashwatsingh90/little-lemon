@@ -4,6 +4,7 @@ import salad from '../icons_assets/greek salad.jpg'
 import bruschetta from '../icons_assets/bruchetta.svg'
 import dessert from '../icons_assets/lemon dessert.jpg'
 import Card from './Card';
+import Testimonials from './Testimonials';
 
 const specials = [
     {
@@ -47,8 +48,10 @@ function Main() {
                     />
                 ))}
             </section>
-            <section className='testimonials'>
 
+            <section className='testimonials'>
+                <h2 id='testHeader'>Testimonials</h2>
+                <Testimonials />
             </section>
         </main>
     )

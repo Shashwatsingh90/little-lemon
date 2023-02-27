@@ -1,5 +1,5 @@
 import React from 'react';
-import recent from 'src/icons_assets/Recent.svg'
+import recent from '../icons_assets/Recent.svg'
 import TestCards from './TestCards';
 
 
@@ -16,12 +16,26 @@ const testimonials = [{
     rating: 5,
     imageSrc: recent,
     review: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus repellat exercitationem quam saepe iste beatae sit excepturi?'
+},
+{
+    id: 4,
+    name: "Jack Skellington",
+    rating: 5,
+    imageSrc: recent,
+    review: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus repellat exercitationem quam saepe iste beatae sit excepturi?'
+},
+{
+    id: 2,
+    name: "T-800",
+    rating: 5,
+    imageSrc: recent,
+    review: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus repellat exercitationem quam saepe iste beatae sit excepturi?'
 }
 ]
 
 function Testimonials() {
     return (
-        <div id='testimonials'>
+        <section id='testimonials'>
             {testimonials.map((testimonial) => (
                 <TestCards
                     key={testimonial.id}
@@ -31,7 +45,7 @@ function Testimonials() {
                     review={testimonial.review}
                 />
             ))}
-        </div>
+        </section>
     )
 }
 

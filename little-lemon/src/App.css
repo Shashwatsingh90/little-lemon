@@ -193,3 +193,43 @@ h1 {
   padding-right: 17rem;
   padding-left: 17rem;
 }
+
+.testimonials {
+  display: grid;
+  grid-auto-rows: auto;
+  margin-top: 2rem;
+  background-color: #d9d9d9;
+  margin-left: -17rem;
+  margin-right: -17rem;
+  justify-items: center;
+}
+
+#testHeader {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  margin: 3rem;
+}
+
+#testimonials {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 66%;
+  height: auto;
+  justify-content: space-evenly;
+  gap: 1rem;
+}
+
+.testCard {
+  display: grid;
+  grid-template-rows: 1fr;
+  background-color: #edefee;
+  padding: 1rem;
+}
+
+#testCardMid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: start;
+}

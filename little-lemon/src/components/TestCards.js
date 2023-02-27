@@ -4,7 +4,7 @@ function TestCards({ rating, name, imageSrc, review }) {
     return (
         <article className='testCard'>
             <section id='testCardRating'>
-                <h3>{rating}</h3>
+                <h3>{rating} Stars</h3>
                 <section id='testCardMid'>
                     <img src={imageSrc} alt="" />
                     <h3 id='testCardName'>{name}</h3>

@@ -1,5 +1,5 @@
 import React from 'react';
-import recent from '../icons_assets/Recent.svg'
+import testImg from '../icons_assets/Mario and Adrian A.jpg'
 import TestCards from './TestCards';
 
 
@@ -7,29 +7,29 @@ const testimonials = [{
     id: 1,
     name: "Joe",
     rating: 5,
-    imageSrc: recent,
-    review: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus repellat exercitationem quam saepe iste beatae sit excepturi?'
+    imageSrc: testImg,
+    review: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
 },
 {
     id: 2,
     name: "Sally",
     rating: 5,
-    imageSrc: recent,
-    review: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus repellat exercitationem quam saepe iste beatae sit excepturi?'
+    imageSrc: testImg,
+    review: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
 },
 {
     id: 4,
-    name: "Jack Skellington",
+    name: "Jack",
     rating: 5,
-    imageSrc: recent,
-    review: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus repellat exercitationem quam saepe iste beatae sit excepturi?'
+    imageSrc: testImg,
+    review: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
 },
 {
     id: 2,
     name: "T-800",
     rating: 5,
-    imageSrc: recent,
-    review: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus repellat exercitationem quam saepe iste beatae sit excepturi?'
+    imageSrc: testImg,
+    review: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
 }
 ]
 

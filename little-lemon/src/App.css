@@ -35,8 +35,8 @@
   grid-template-columns: 25% 75%;
   padding-left: 17rem;
   padding-right: 17rem;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
 }
 
 .nav a {
@@ -63,9 +63,9 @@ ul {
 
 .header {
   background-color: #495e57;
-  min-height: 35vh;
+  min-height: 45vh;
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: repeat(2, 1fr);
   align-items: start;
   justify-content: space-between;
   color: white;
@@ -116,6 +116,8 @@ h1 {
   width: 9rem;
   height: 3rem;
   border-radius: 0.25rem;
+  box-shadow: none;
+  border-style: none;
 }
 
 .main {
@@ -145,11 +147,11 @@ h1 {
 
 .specialsCards {
   display: grid;
-  grid-template-columns: 33% 33% 33%;
+  grid-template-columns: repeat(3, 1fr);
   width: auto;
   height: auto;
   justify-content: space-evenly;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .card {
@@ -176,6 +178,11 @@ h1 {
 .cardLabel {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  justify-items: end;
+}
+
+#price {
+  color: #ee9972;
 }
 
 .footer {

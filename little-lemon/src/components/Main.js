@@ -36,7 +36,7 @@ function Main() {
                 <h2>Specials</h2>
                 <Button>See Specials</Button>
             </section>
-            <div className='specialsCards'>
+            <section className='specialsCards'>
                 {specials.map((special) => (
                     <Card
                         key={special.title}
@@ -46,7 +46,10 @@ function Main() {
                         price={special.price}
                     />
                 ))}
-            </div>
+            </section>
+            <section className='testimonials'>
+
+            </section>
         </main>
     )
 }

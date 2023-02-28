@@ -5,6 +5,7 @@ import bruschetta from '../icons_assets/bruchetta.svg'
 import dessert from '../icons_assets/lemon dessert.jpg'
 import Card from './Card';
 import Testimonials from './Testimonials';
+import About from './About'
 
 const specials = [
     {
@@ -35,7 +36,7 @@ function Main() {
         <main className='main'>
             <section className='mainTop'>
                 <h2>Specials</h2>
-                <Button>See Specials</Button>
+                <Button id='specialsButton'>See Specials</Button>
             </section>
             <section className='specialsCards'>
                 {specials.map((special) => (
@@ -48,11 +49,14 @@ function Main() {
                     />
                 ))}
             </section>
-
             <section className='testimonials'>
                 <h2 id='testHeader'>Testimonials</h2>
                 <Testimonials />
             </section>
+            <section className='about'>
+                <About />
+            </section>
+
         </main>
     )
 }

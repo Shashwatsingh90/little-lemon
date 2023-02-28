@@ -37,6 +37,7 @@
   padding-right: 17rem;
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
+  gap: 1rem;
 }
 
 .nav a {
@@ -46,10 +47,11 @@
 
 .nav ul {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-auto-flow: column;
   gap: 0.25rem;
   justify-items: center;
   align-items: center;
+  padding-left: 0;
 }
 
 .nav img {
@@ -154,6 +156,11 @@ h1 {
   gap: 1rem;
 }
 
+#specialsButton {
+  color: white;
+  background-color: black;
+}
+
 .card {
   display: grid;
   grid-template-rows: 1fr 1fr;
@@ -183,16 +190,6 @@ h1 {
 
 #price {
   color: #ee9972;
-}
-
-.footer {
-  display: grid;
-  grid-template-columns: 33% 33% 33%;
-  width: auto;
-  justify-items: center;
-  padding-right: 17rem;
-  padding-left: 17rem;
-  background-color: #d9d9d9;
 }
 
 .testimonials {
@@ -240,4 +237,68 @@ h1 {
 .testCard img {
   max-width: 100%;
   max-height: auto;
+}
+
+.about {
+  display: grid;
+  grid-auto-rows: auto;
+  justify-items: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+#about {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  gap: 1rem;
+}
+
+#aboutTitle {
+  margin: 0;
+}
+
+#about h2 {
+  margin-top: 0;
+}
+
+#aboutMid {
+  width: 100%;
+}
+
+#about img {
+  max-width: 200%;
+  max-height: auto;
+}
+
+/* #aboutImgOne {
+  margin-left: 3rem;
+} */
+
+#aboutImgTwo {
+  margin-top: -3rem;
+}
+
+.footer {
+  display: grid;
+  grid-auto-flow: column;
+  /* width: auto;
+  justify-items: start; */
+  padding-right: 17rem;
+  padding-left: 17rem;
+  background-color: #d9d9d9;
+  gap: 1rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.footer img {
+  max-width: 100%;
+  height: 100%;
+}
+
+.footer ul {
+  padding-left: 0;
 }

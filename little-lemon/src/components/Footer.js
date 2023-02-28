@@ -1,10 +1,12 @@
 import React from 'react'
+import footerImg from '../icons_assets/restaurant.jpg'
 
 function Footer() {
     return (
         <footer className='footer'>
+            <img src={footerImg} alt="" />
             <article>
-                <h3>Doormat Navigation</h3>
+                <h3>Navigation</h3>
                 <ul>
                     <li><a href="">Home</a></li>
                     <li><a href="">About</a></li>
@@ -23,7 +25,7 @@ function Footer() {
                 </ul>
             </article>
             <article>
-                <h3>Social Media Links</h3>
+                <h3>Social Media</h3>
                 <ul>
                     <li><a href="">Facebook</a></li>
                     <li><a href="">Instagram</a></li>

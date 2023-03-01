@@ -97,6 +97,7 @@ ul {
 .header-left {
   display: grid;
   margin-top: 0;
+  justify-items: start;
 }
 
 .header-left h1 {

@@ -1,11 +1,6 @@
 import React from 'react';
 import logo from '../icons_assets/Logo.svg'
 import { Link } from 'react-router-dom';
-import BookingPage from './BookingPage';
-import About from './About'
-import Menu from './Menu';
-import OrderOnline from './OrderOnline';
-import Login from './Login';
 
 function Nav() {
     return (

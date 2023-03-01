@@ -9,7 +9,7 @@ function Header() {
             <div className='header-left'>
                 <h1>Little Lemon</h1>
                 <h2 id='headerH2'>Chicago</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p align='left'>Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                 <Button>Reserve Now!</Button>
             </div>
             <div className='header-right'>

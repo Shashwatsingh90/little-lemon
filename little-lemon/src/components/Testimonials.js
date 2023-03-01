@@ -25,7 +25,7 @@ const testimonials = [{
     review: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
 },
 {
-    id: 2,
+    id: 5,
     name: "T-800",
     rating: 5,
     imageSrc: testImg,

@@ -6,13 +6,14 @@ import HomePage from './components/HomePage';
 
 function App() {
   return (
-    <>
-      <Routes>
-        <Route path='/' element={<HomePage />}></Route>
-        <Route path='/booking' element={<BookingPage />}></Route>
-      </Routes>
-      <HomePage />
-    </>
+    <div className='App'>
+      <main>
+        <Routes>
+          <Route path='/' element={<HomePage />}></Route>
+          <Route path='/booking' element={<BookingPage />}></Route>
+        </Routes>
+      </main>
+    </div>
   );
 }
 

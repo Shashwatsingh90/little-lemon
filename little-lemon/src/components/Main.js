@@ -33,7 +33,7 @@ const specials = [
 
 function Main() {
     return (
-        <main className='main'>
+        <section className='main'>
             <section className='mainTop'>
                 <h2>Specials</h2>
                 <Button id='specialsButton'>See Specials</Button>
@@ -56,8 +56,7 @@ function Main() {
             <section className='about'>
                 <About />
             </section>
-
-        </main>
+        </section>
     )
 }
 

@@ -13,11 +13,11 @@ function Nav() {
             <img src={logo} alt="" />
             <ul>
                 <li><Link to='/'>Home Page</Link></li>
-                <li><Link to={About}>About</Link></li>
+                <li><Link to='/about'>About</Link></li>
                 <li><Link to='/booking'>Reservations</Link></li>
-                <li><Link to={Menu}>Menu</Link></li>
-                <li><Link to={OrderOnline}>Order Online</Link></li>
-                <li><Link to={Login}>Login</Link></li>
+                <li><Link to='/menu'>Menu</Link></li>
+                <li><Link to='/order'>Order Online</Link></li>
+                <li><Link to='/login'>Login</Link></li>
             </ul>
         </nav>
     )

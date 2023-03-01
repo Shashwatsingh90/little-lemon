@@ -1,5 +1,4 @@
 .App {
-  text-align: center;
   display: grid;
 }
 .body {
@@ -138,6 +137,7 @@ h1 {
   margin: 0;
   margin-top: 3rem;
   margin-bottom: 2rem;
+  justify-items: start;
 }
 
 /* .mainTop h2 {

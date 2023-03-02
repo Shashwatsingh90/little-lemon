@@ -7,11 +7,11 @@ function BookingForm() {
     const [guests, setGuests] = useState('');
     const [occasion, setOccasion] = useState('');
 
-    const availableTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
+    const [availableTimes] = useState(['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']);
 
     return (
         <div className=''>
-            <form style={{ display: "grid", maxWidth: "200px", gap: "20px" }}>
+            <form style={{ display: "grid", maxWidth: 200, gap: 20 }}>
                 <label htmlFor="res-date">Choose date</label>
                 <input type="date" id="res-date" value={date} onChange={e => setDate(e.target.value)} />
                 <label htmlFor="res-time">Choose time</label>

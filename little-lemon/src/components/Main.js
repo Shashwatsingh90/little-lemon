@@ -1,4 +1,4 @@
-import React from 'react';
+// import React, { useReducer } from 'react';
 import Button from './Button';
 import salad from '../icons_assets/greek salad.jpg'
 import bruschetta from '../icons_assets/bruchetta.svg'
@@ -6,6 +6,8 @@ import dessert from '../icons_assets/lemon dessert.jpg'
 import Card from './Card';
 import Testimonials from './Testimonials';
 import About from './About'
+import BookingForm from './BookingForm';
+import { useReducer } from 'react';
 
 const specials = [
     {
@@ -31,7 +33,33 @@ const specials = [
     }
 ]
 
+
+const initialTimes = [{ time: '17:00' }, { time: '18:00' }, { time: '19:00' }, { time: '20:00' }, { time: '21:00' }, { time: '22:00' }]
+
+
+
+function updateTimes(availableTimes, action) {
+    switch (action.type) {
+        case 'submitted': {
+            return (
+                availableTimes.filter(t => t.time !== action.time)
+            )
+        }
+        default:
+    };
+}
+
 function Main() {
+    const [availableTimes, dispatch] = useReducer(updateTimes, initialTimes);
+
+    const handleUpdateTimes = (submittedTime) => {
+        dispatch({
+            type: 'selectedTime',
+            time: submittedTime
+        });
+        console.log(submittedTime);
+    }
+
     return (
         <section className='main'>
             <section className='mainTop'>
@@ -55,6 +83,16 @@ function Main() {
             </section>
             <section className='about'>
                 <About />
+            </section>
+            <section>
+                {/* {console.log(availableTimes)} */}
+                <BookingForm
+                    // date={ }
+                    times={availableTimes}
+                    // guests={ }
+                    // occasion={ }
+                    onSubmitted={handleUpdateTimes}
+                />
             </section>
         </section>
     )

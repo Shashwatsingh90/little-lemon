@@ -34,13 +34,14 @@ const specials = [
 ]
 
 
-const initialTimes = [{ time: '17:00' }, { time: '18:00' }, { time: '19:00' }, { time: '20:00' }, { time: '21:00' }, { time: '22:00' }]
+
+const initialTimes = [{ time: '17:00' }, { time: '18:00' }, { time: '19:00' }, { time: '20:00' }, { time: '21:00' }, { time: '22:00' }];
 
 
 
 function updateTimes(availableTimes, action) {
     switch (action.type) {
-        case 'submitted': {
+        case 'selectedTime': {
             return (
                 availableTimes.filter(t => t.time !== action.time)
             )
@@ -50,7 +51,7 @@ function updateTimes(availableTimes, action) {
 }
 
 function Main() {
-    const [availableTimes, dispatch] = useReducer(updateTimes, initialTimes);
+    const [availableTimes, dispatch] = useReducer(updateTimes, initialTimes)
 
     const handleUpdateTimes = (submittedTime) => {
         dispatch({
@@ -59,6 +60,13 @@ function Main() {
         });
         console.log(submittedTime);
     }
+
+    // const handleSelectedDate = (e) => {
+    //     dispatch({
+    //         type: 'SELECTED_DATE',
+    //         payload: e.target.value
+    //     })
+    // }
 
     return (
         <section className='main'>
@@ -87,10 +95,7 @@ function Main() {
             <section>
                 {/* {console.log(availableTimes)} */}
                 <BookingForm
-                    // date={ }
                     times={availableTimes}
-                    // guests={ }
-                    // occasion={ }
                     onSubmitted={handleUpdateTimes}
                 />
             </section>

@@ -1,31 +1,69 @@
 import React from 'react'
 import { useState } from 'react'
+// import {formReducer, inititalState} from './formReducer';
 
-function BookingForm(props) {
+
+
+function BookingForm({ times, onSubmitted }) {
     const [date, setDate] = useState('');
-    const [time, setTime] = useState('');
+    // const [time, setTime] = useState('');
     const [guests, setGuests] = useState('');
     const [occasion, setOccasion] = useState('');
-    const [availableTimes, setAvailableTimes] = useState(['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'])
-
-    console.log(props);
+    const [selectedTime, setSelectedTime] = useState('17:00')
 
     // const availableTimes = props.availableTimes;
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    }
+
+
+    // console.log(props);
+
+    // const handleNameChange = (e) => {
+    //     dispatch({
+    //         type: 'CHANGED_NAME',
+    //         payload: e.target.value})
+    // }
+
+
+
+    // const handleSelectedTime = (e) => {
+    //     dispatch({
+    //         type: 'SELECTED_TIME',
+    //         payload: e.target.value})
+    // }
+
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    // }
 
     return (
-        <div className=''>
-            <form onSubmit={handleSubmit} style={{ display: "grid", maxWidth: 200, gap: 20 }}>
+        <>
+            <form onSubmit={() => onSubmitted(selectedTime)} style={{ display: "grid", maxWidth: 200, gap: 20 }}>
+                <label htmlFor="name">
+                    <p>Your Name</p>
+                    <input
+                        // onChange={handleNameChange}
+                        type="text"
+                        id="name"
+                    />
+                </label>
                 <label htmlFor="res-date">Choose date</label>
-                <input type="date" id="res-date" value={date} onChange={e => setDate(e.target.value)} />
+                <input
+                    type="date"
+                    id="res-date"
+                    value={date}
+                    onChange={e => setDate(e.target.value)}
+                />
                 <label htmlFor="res-time">Choose time</label>
-                <select id="res-time " value={time} onChange={e => setTime(e.target.value)}>
-                    {
-                        availableTimes.map(availableTime => (<option onSelect={e => setAvailableTimes(e.target.value)} value={availableTime}>{availableTime}</option>))
-                    }
+                <select
+                    id="res-time "
+                    onChange={e => setSelectedTime(e.target.value)}
+                    value={selectedTime}
+                >
+                    {times?.map((time) => {
+                        return (
+                            <option value={time.time} key={time.time}>{time.time}</option>
+                        )
+                    })}
                 </select>
                 <label htmlFor="guests">Number of guests</label>
                 <input type="number" placeholder="1" min="1" max="10" id="guests" value={guests} onChange={e => setGuests(e.target.value)} />
@@ -34,9 +72,9 @@ function BookingForm(props) {
                     <option>Birthday</option>
                     <option>Anniversary</option>
                 </select>
-                <input type="submit" value="Make Your reservation" />
+                <button type="submit" value="Make Your reservation" />
             </form>
-        </div>
+        </>
     )
 }
 

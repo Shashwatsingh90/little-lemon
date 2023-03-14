@@ -8,7 +8,7 @@ import { React, useContext, createContext } from 'react'
 const formContext = createContext(undefined)
 
 function FormProvider({ children }) {
-
+  const form = useContext(formContext)
   return (
     <div>FormContext</div>
   )

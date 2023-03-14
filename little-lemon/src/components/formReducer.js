@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 export const initalState = {
     name: '',
@@ -7,6 +7,31 @@ export const initalState = {
     guests: 1,
     occasion: ''
 }
+
+
+// const availableTimes = props.availableTimes;
+
+
+
+// console.log(props);
+
+// const handleNameChange = (e) => {
+//     dispatch({
+//         type: 'CHANGED_NAME',
+//         payload: e.target.value})
+// }
+
+
+
+// const handleSelectedTime = (e) => {
+//     dispatch({
+//         type: 'SELECTED_TIME',
+//         payload: e.target.value})
+// }
+
+// const handleSubmit = (e) => {
+//     e.preventDefault();
+// }
 
 
 export const formReducer = (state, action) => {

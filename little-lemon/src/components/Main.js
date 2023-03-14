@@ -93,7 +93,6 @@ function Main() {
                 <About />
             </section>
             <section>
-                {/* {console.log(availableTimes)} */}
                 <BookingForm
                     times={availableTimes}
                     onSubmitted={handleUpdateTimes}

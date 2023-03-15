@@ -52,7 +52,7 @@ function BookingForm({ times, onSubmitted }) {
                     <option>Birthday</option>
                     <option>Anniversary</option>
                 </select>
-                <button type='submit' onClick={() => onSubmitted(selectedTime)}>Make Your Reservation</button>
+                <button type='submit' onClick={() => onSubmitted(selectedTime, date)}>Make Your Reservation</button>
             </form>
         </>
     )

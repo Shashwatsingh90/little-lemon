@@ -2,12 +2,12 @@ import { React, useContext, useState, createContext } from 'react'
 
 // for Context:
 // 1. Create
-// 2. Use
-// 3. Provide
+// 2. Provide
+// 3. Use
 
 const FormContext = createContext();
 
-const FormProvider = ({ children }) => {
+export const FormProvider = ({ children }) => {
   const [form, setForm] = useState({
     name: '',
     date: '',
@@ -31,7 +31,5 @@ const FormProvider = ({ children }) => {
     </FormContext.Provider>
   )
 }
-
-export default FormProvider
 
 export const useFormContext = () => useContext(FormContext)

@@ -6,7 +6,7 @@ import dessert from '../icons_assets/lemon dessert.jpg'
 import Card from './Card';
 import Testimonials from './Testimonials';
 import About from './About'
-import BookingForm from './BookingForm';
+import BookingForm from './Booking/BookingForm';
 import { useReducer } from 'react';
 
 const specials = [

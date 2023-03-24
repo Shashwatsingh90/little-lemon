@@ -29,7 +29,7 @@ export default function BookingForm() {
     }
 
     return (
-        <div>
+        <>
             <div style={{ display: 'grid', gap: 20, gridAutoFlow: 'row', alignItems: 'center', justifyContent: 'center', justifyItems: 'center' }}>
                 <div><h1>Book a Table</h1></div>
                 <label htmlFor="date">Pick a Date</label>
@@ -62,6 +62,6 @@ export default function BookingForm() {
                         )}
                     </div>}
             </div>
-        </div>
+        </>
     )
 }

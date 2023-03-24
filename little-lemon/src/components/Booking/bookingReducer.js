@@ -47,7 +47,7 @@ const getAvailableDates = (bookings, date) =>
 //     { type: 'SET_GUESTS', guests: '' }
 // }
 
-export function bookingReducer(BookingState, BookingAction) {
+export function BookingReducer(BookingState, BookingAction) {
     const { time, guests, date, bookings } = BookingState
     switch (BookingAction.type) {
         case 'ADD_BOOKING': {

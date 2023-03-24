@@ -122,6 +122,14 @@ h1 {
   border-style: none;
 }
 
+.button:hover {
+  background-color: #c5a815;
+}
+
+.button:active {
+  background-color: #eeebd8;
+}
+
 .main {
   display: grid;
   justify-content: space-evenly;

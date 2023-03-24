@@ -3,16 +3,17 @@ import React, { createContext, useContext, useReducer } from 'react'
 const TimeContext = createContext(null);
 const DispatchContext = createContext(null)
 
+function initializeTimes() {
+  const initialTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
 
-
-
-// function initializeTimes() {
-const initialTimes = { selectedDates: [], times: [{ time: '17:00', id: 1 }, { time: '18:00', id: 2 }, { time: '19:00', id: 3 }, { time: '20:00', id: 4 }, { time: '21:00', id: 5 }, { time: '22:00', id: 6 }] };
-//   return { times: initialTimes };
-// }
+  return [{
+    date: '',
+    availTimes: initialTimes
+  }];
+}
 
 export function TimeProvider({ children }) {
-  const [state, dispatch] = useReducer(reducer, initialTimes)
+  const [state, dispatch] = useReducer(reducer, [], initializeTimes)
 
   // function handleSubmitTime(submittedTime) {
   //     dispatch({
@@ -42,21 +43,22 @@ export function useTimeDispatch() {
 function reducer(state, action) {
 
   switch (action.type) {
-    // case 'SUBMITTED_DATE': {
-    //   return submittedDates.push(action.date)
-    // }
-    case 'SUBMITTED_TIME':
-      state.selectedDates = [...state.selectedDates, action.date]
-      return console.log(state.selectedDates.map(date =>
-        state.times.filter(t => t.time !== action.time))
-      );
+    case 'SELECTED_DATE': {
+      return ({
+        date: action.date,
+        availTimes: state.availTimes
+      }, console.log(state));
+    }
+    case 'SUBMITTED': {
+      return ([
+        ...state, {
+          date: action.date,
+          availTimes: action.time
+        }
+      ], console.log(state));
+    }
     default: {
       return { ...state };
     }
   }
-
 }
-
-// const submittedDates = [];
-
-

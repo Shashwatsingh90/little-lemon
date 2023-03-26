@@ -34,7 +34,7 @@ export const initialBookingState = () => {
     }
 }
 
-const getAvailableDates = (bookings, date) =>
+const updateTimes = (bookings, date) =>
     defaultTimes.filter(defaultTime =>
         typeof bookings.find(booking =>
             booking.date === date && booking.time === defaultTime) === 'undefined')
@@ -48,11 +48,14 @@ const getAvailableDates = (bookings, date) =>
 // }
 
 export function BookingReducer(BookingState, BookingAction) {
+
+
+
     const { time, guests, date, bookings } = BookingState
     switch (BookingAction.type) {
         case 'ADD_BOOKING': {
             const nextBookings = [...BookingState.bookings, createBooking(time, guests, date)]
-            const nextAvailableTimes = getAvailableDates(nextBookings, date)
+            const nextAvailableTimes = updateTimes(nextBookings, date)
             return (
                 {
                     ...BookingState,
@@ -67,7 +70,7 @@ export function BookingReducer(BookingState, BookingAction) {
             return {
                 ...BookingState,
                 date: BookingAction.date,
-                availableTimes: getAvailableDates(bookings, BookingAction.date)
+                availableTimes: updateTimes(bookings, BookingAction.date)
             }
         case 'SET_GUESTS':
             return {

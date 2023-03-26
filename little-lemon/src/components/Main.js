@@ -7,7 +7,6 @@ import Card from './Card';
 import Testimonials from './Testimonials';
 import About from './About'
 import BookingForm from './Booking/BookingForm';
-import { useReducer } from 'react';
 
 const specials = [
     {
@@ -34,40 +33,7 @@ const specials = [
 ]
 
 
-
-const initialTimes = [{ time: '17:00' }, { time: '18:00' }, { time: '19:00' }, { time: '20:00' }, { time: '21:00' }, { time: '22:00' }];
-
-
-
-function updateTimes(availableTimes, action) {
-    switch (action.type) {
-        case 'selectedTime': {
-            return (
-                availableTimes.filter(t => t.time !== action.time)
-            )
-        }
-        default:
-    };
-}
-
 function Main() {
-    const [availableTimes, dispatch] = useReducer(updateTimes, initialTimes)
-
-    const handleUpdateTimes = (submittedTime) => {
-        dispatch({
-            type: 'selectedTime',
-            time: submittedTime
-        });
-        console.log(submittedTime);
-    }
-
-    // const handleSelectedDate = (e) => {
-    //     dispatch({
-    //         type: 'SELECTED_DATE',
-    //         payload: e.target.value
-    //     })
-    // }
-
     return (
         <section className='main'>
             <section className='mainTop'>
@@ -93,10 +59,7 @@ function Main() {
                 <About />
             </section>
             <section>
-                <BookingForm
-                    times={availableTimes}
-                    onSubmitted={handleUpdateTimes}
-                />
+                <BookingForm />
             </section>
         </section>
     )

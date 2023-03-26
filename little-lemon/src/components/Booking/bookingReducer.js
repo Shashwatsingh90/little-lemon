@@ -1,4 +1,13 @@
-const defaultTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
+import { fetchAPI, submitAPI } from "../../utils/API";
+import { useEffect } from "react";
+
+// const defaultTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
+
+export const fetchData = (date, formData) => {
+    fetchAPI(date);
+    submitAPI(formData)
+}
+
 
 const DEFAULT_GUEST_COUNT = '2'
 
@@ -27,10 +36,16 @@ export function createBooking(time, guests, date) {
 export const initialBookingState = () => {
     return {
         bookings: [],
-        date: new Date().toISOString().substring(0, 10),
-        time: defaultTimes[0],
+        date: '',
+        time: '17:00',
         guests: DEFAULT_GUEST_COUNT,
-        availableTimes: defaultTimes
+        availableTimes: initializeTimes(new Date().toISOString().substring(0, 10))
+    }
+}
+
+export const initializeTimes = (date) => {
+    return {
+        availableTimes: fetchAPI(date)
     }
 }
 
@@ -49,6 +64,9 @@ const updateTimes = (bookings, date) =>
 
 export function BookingReducer(BookingState, BookingAction) {
 
+    useEffect(() => {
+        fetchData();
+    }, [])
 
 
     const { time, guests, date, bookings } = BookingState

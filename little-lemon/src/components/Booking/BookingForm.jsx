@@ -45,11 +45,14 @@ export default function BookingForm() {
         <h1>Make your Reservation Now</h1>
         <Formik
           initialValues={{
-            name: "",
-            date: date,
-            availableTimes: [initializeTimes.availableTimes],
-            occasion: "",
-            guests: "2",
+            availableTimes: initializeTimes.availableTimes,
+            formData: {
+              name: "",
+              date: "",
+              time: "17:00",
+              occasion: "",
+              guests: 2,
+            },
           }}
           onSubmit={async (values) => {
             await new Promise((r) => setTimeout(r, 500));
@@ -89,14 +92,14 @@ export default function BookingForm() {
               />
               {errors.date && touched.date ? <div>{errors.date}</div> : null}
 
-              <label htmlFor="availableTimes">Time</label>
+              <label htmlFor="time">Time</label>
               <Field
-                value={values.availableTimes.time}
-                id="availableTimes"
-                name="availableTimes"
+                value={values.formData.time}
+                id="time"
+                name="time"
                 as="select"
               >
-                {values.availableTimes.map((time, index) => (
+                {state.availableTimes.map((time, index) => (
                   <option key={index} value={time}>
                     {time}
                   </option>
@@ -105,7 +108,13 @@ export default function BookingForm() {
               </Field>
 
               <label htmlFor="occasion">Occasion</label>
-              <Field as="select" id="occasion" name="occasion" multiple={false}>
+              <Field
+                values={values.occasion}
+                as="select"
+                id="occasion"
+                name="occasion"
+                multiple={false}
+              >
                 <option value="birthday">Birthday</option>
                 <option value="anniversary">Anniversary</option>
                 {errors.occasion && touched.occasion ? (
@@ -115,7 +124,7 @@ export default function BookingForm() {
 
               <label htmlFor="guests">Number of Guests</label>
               <Field
-                value={values.guests}
+                value={state.guests}
                 type="range"
                 id="guests"
                 name="guests"

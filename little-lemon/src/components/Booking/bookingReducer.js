@@ -25,7 +25,15 @@ export const fetchData = (date, formData) => {
 // use the fetchData API function to return the available times for today’s date
 export const initializeTimes = () => {
     return {
-        availableTimes: fetchAPI("1995-12-17T03:24:00")
+        availableTimes: fetchAPI("1995-12-17T03:24:00"),
+        formData:
+        {
+            name: '',
+            date: '',
+            time: '17:00',
+            occasion: '',
+            guests: 2
+        }
     }
 }
 

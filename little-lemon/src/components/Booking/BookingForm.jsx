@@ -1,8 +1,5 @@
 import { React, useReducer, useState } from "react";
 import { BookingReducer, initialBookingState } from "./BookingReducer";
-import { useEffect } from "react";
-import { fetchAPI } from "../../utils/API";
-import TimeSlots from "./TimeSlots";
 
 export default function BookingForm() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,13 +7,6 @@ export default function BookingForm() {
     useReducer(BookingReducer, null, initialBookingState);
 
   // Gotta set the initial value (in bookingReducer) to the randomly-generated date, which will be an object which cotains an array of avilable times. That needs to get shared across components/pages.
-
-  const fetchData = () => {
-    fetchAPI().then((response) => response.json());
-  };
-  useEffect(() => {
-    fetchData();
-  });
 
   const handleDateChange = (e) => {
     dispatch({ type: "SET_DATE", date: e.target.value });

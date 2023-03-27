@@ -1,0 +1,25 @@
+What did I misunderstand about the useReducer/availableTimes issue?
+
+I did not understand how to use useReducer to track available times with state based on previous bookings.
+
+I thought they wanted me to use useReducer to:
+1: keep track of all bookings submitted;
+2: keep track of all available times for each date based on #1.
+
+This seemed difficult to me, and seemed like something a DB should handle as not everyone would be working off the same session-specific state.
+
+Now I understand, they don't care about that.
+
+They want the date change to trigger an API call which will produce a randomly-populated array of availableTimes each time the date is changed.
+
+They really just wanted you to use useReducer to track...uh...wait.
+
+I'm actually still confused.
+
+Why are we using useReducer to track available times if they'll always be randomly populated?
+
+WHAT IS USEREDUCER FOR IN THIS
+
+Hm.
+
+Still working on it.

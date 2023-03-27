@@ -43,12 +43,15 @@ export const initialBookingState = () => {
     }
 }
 
+// create the initial state for the availableTimes
+// use the fetchData API function to return the available times for today’s date
 export const initializeTimes = (date) => {
     return {
         availableTimes: fetchAPI(date)
     }
 }
 
+// This function will change the availableTimes based on the selected date
 const updateTimes = (bookings, date) =>
     defaultTimes.filter(defaultTime =>
         typeof bookings.find(booking =>

@@ -1,5 +1,5 @@
 import { fetchAPI, submitAPI } from "../../utils/API";
-import { redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import BookingConfirmation from "../../pages/BookingConfirmation";
 
 
@@ -37,9 +37,9 @@ const updateTimes = (state, payload) => ({
 });
 
 //Take the results from fetchData's submitAPI funciton (which should return true)
-export const handleSubmit = (formData) => {
-    const submitBool = submitAPI(formData);
-    return submitBool ? alert('/bookingconfirmation') : alert('Sorry! Something broke on our end. Please trye again.')
+export async function handleSubmit(formData) {
+    const submitBool = await submitAPI(formData);
+    return submitBool ? <Navigate to="/bookingconfirmation" replace={true} /> : alert('Sorry! Something broke on our end. Please trye again.')
 }
 
 // let BookingAction = {

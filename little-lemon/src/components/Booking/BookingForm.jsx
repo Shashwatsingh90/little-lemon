@@ -50,7 +50,7 @@ export default function BookingForm() {
               date: "",
               time: "17:00",
               occasion: "",
-              guests: "",
+              guests: 3,
             },
           }}
           onSubmit={(values) => {

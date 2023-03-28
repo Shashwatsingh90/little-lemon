@@ -1,5 +1,6 @@
 import { fetchAPI, submitAPI } from "../../utils/API";
 import { redirect } from "react-router-dom";
+import BookingConfirmation from "../../pages/BookingConfirmation";
 
 // const defaultTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
 
@@ -9,7 +10,6 @@ export const fetchData = (date, formData) => {
         .then((jsonData) => updateTimes(jsonData.results))
     submitAPI(formData)
         .then((response) => response.json())
-        .then((jsonData) => handleSubmit(jsonData.results))
 }
 
 
@@ -45,12 +45,12 @@ const updateTimes = (state, payload) => ({
     availableTimes: fetchAPI(new Date(payload)),
 });
 
-const handleSubmit = (formData) => {
-    const submitBool = submitAPI(formData);
-    if (submitBool) {
-        return redirect('/bookingconfirmation')
-    }
-    return "Sorry, something broke on our end. Please try again!"
+//Take the results from fetchData's submitAPI funciton (which should return true)
+export const handleSubmit = (formData) => {
+    const submitBool = submitAPI(formData)
+    return (
+        submitBool() ? redirect('/bookingconfirmation') : <p>Sorry, something broke on our end. Please try again!</p>
+    )
 }
 
 

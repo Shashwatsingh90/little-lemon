@@ -1,5 +1,9 @@
 import { React, useReducer, useState } from "react";
-import { AvailableTimesReducer, initializeTimes } from "./BookingReducer";
+import {
+  AvailableTimesReducer,
+  handleSubmit,
+  initializeTimes,
+} from "./BookingReducer";
 import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
 
@@ -8,17 +12,16 @@ const FormSchema = Yup.object().shape({
     .min(2, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
-  date: Yup.date().required("Required"),
+  date: Yup.date()
+    .default(() => new Date())
+    .required("Required"),
   time: Yup.string().required("Required"),
   occasion: Yup.string().required("Required"),
   guests: Yup.number()
     .min(2, "Sorry, we require at least 2 guests for reservations.")
     .max(10, "Sorry, we can't accomodate more than 10 guests.")
     .required("Required"),
-  email: Yup.string().email("Invalid email").required("Required"),
 });
-
-function submitForm() {}
 
 export default function BookingForm() {
   const [state, dispatch] = useReducer(
@@ -50,12 +53,8 @@ export default function BookingForm() {
               guests: "",
             },
           }}
-          onSubmit={async (values) => {
-            await new Promise((r) => setTimeout(r, 500));
-            dispatch({
-              type: "submitted",
-              payload: values.formData,
-            });
+          onSubmit={(values) => {
+            handleSubmit(values.formData);
           }}
           validationSchema={FormSchema}
         >
@@ -128,8 +127,10 @@ export default function BookingForm() {
                 min="1"
                 max="10"
               />
-              {values.guests}
-              {errors.guests && touched.guests ? <>{errors.guests}</> : null}
+              <>{values.guests}</>
+              <p>
+                {errors.guests && touched.guests ? <>{errors.guests}</> : null}
+              </p>
 
               <button type="submit">Book Now!</button>
             </Form>

@@ -93,10 +93,10 @@ export default function BookingForm() {
                 type="date"
                 id="date"
                 name="date"
-                onChange={() =>
+                onChange={(e) =>
                   dispatch({
                     type: "SET_DATE",
-                    payload: values.date,
+                    payload: e.target.value,
                   })
                 }
               />

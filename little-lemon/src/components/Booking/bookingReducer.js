@@ -40,7 +40,7 @@ export const initializeTimes = () => {
 // This function will change the availableTimes based on the selected date
 const updateTimes = (state, payload) => ({
     ...state,
-    availableTimes: fetchAPI(payload),
+    availableTimes: fetchAPI(new Date(payload)),
 });
 
 

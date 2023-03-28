@@ -60,7 +60,7 @@ export default function BookingForm() {
           }}
           validationSchema={FormSchema}
         >
-          {({ values, errors, touched, onChange }) => (
+          {({ values, errors, touched, isValid, dirty }) => (
             <Form
               style={{
                 display: "grid",
@@ -129,12 +129,14 @@ export default function BookingForm() {
                 min="1"
                 max="10"
               />
-              <>{values.guests}</>
+              <p>{values.guests}</p>
               <p>
                 {errors.guests && touched.guests ? <>{errors.guests}</> : null}
               </p>
 
-              <button type="submit">Book Now!</button>
+              <button type="submit" disabled={!isValid || !dirty}>
+                Book Now!
+              </button>
             </Form>
           )}
         </Formik>

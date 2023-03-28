@@ -115,7 +115,7 @@ export default function BookingForm() {
                 <option value="birthday">Birthday</option>
                 <option value="anniversary">Anniversary</option>
                 {errors.occasion && touched.occasion ? (
-                  <div>{errors.occasion}</div>
+                  <>{errors.occasion}</>
                 ) : null}
               </Field>
 
@@ -129,9 +129,7 @@ export default function BookingForm() {
                 max="10"
               />
               {values.guests}
-              {errors.guests && touched.guests ? (
-                <div>{errors.guests}</div>
-              ) : null}
+              {errors.guests && touched.guests ? <>{errors.guests}</> : null}
 
               <button type="submit">Book Now!</button>
             </Form>

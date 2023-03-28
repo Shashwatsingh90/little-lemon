@@ -1,5 +1,4 @@
 import { fetchAPI, submitAPI } from "../../utils/API";
-import { useEffect } from "react";
 import { redirect } from "react-router-dom";
 
 // const defaultTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
@@ -9,6 +8,8 @@ export const fetchData = (date, formData) => {
         .then((response) => response.json())
         .then((jsonData) => updateTimes(jsonData.results))
     submitAPI(formData)
+        .then((response) => response.json())
+        .then((jsonData) => handleSubmit(jsonData.results))
 }
 
 
@@ -66,7 +67,7 @@ export function AvailableTimesReducer(state, { type, payload }) {
         case 'SET_DATE':
             return updateTimes(state, payload)
         case 'submitted':
-            return handleSubmit(payload)
+            return submitAPI(payload)
         default:
             return { ...state }
     }

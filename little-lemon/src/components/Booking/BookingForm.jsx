@@ -19,24 +19,11 @@ const FormSchema = Yup.object().shape({
 });
 
 export default function BookingForm() {
-  // const [isOpen, setIsOpen] = useState(false);
-  // const [date, setDate] = useState("");
-  // const [formData, setFormData] = useState({
-  //   name: "",
-  //   date: Date(),
-  //   times: [],
-  //   occasion: "",
-  //   guests: "2",
-  // });
   const [state, dispatch] = useReducer(
     AvailableTimesReducer,
     null,
     initializeTimes
   );
-
-  // const addBooking = () => {
-  //   dispatch({ type: 'ADD_BOOKING' })
-  // }
 
   return (
     <div>

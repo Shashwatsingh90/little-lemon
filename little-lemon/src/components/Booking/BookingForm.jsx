@@ -38,20 +38,27 @@ export default function BookingForm() {
   //   dispatch({ type: 'ADD_BOOKING' })
   // }
 
-  const date = new Date("1995-12-17T03:24:00");
   return (
     <div>
-      <div>
+      <div
+        style={{
+          display: "grid",
+          gap: 20,
+          gridAutoFlow: "row",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <h1>Make your Reservation Now</h1>
         <Formik
           initialValues={{
-            availableTimes: initializeTimes.availableTimes,
+            availableTimes: [initializeTimes.availableTimes],
             formData: {
               name: "",
               date: "",
               time: "17:00",
               occasion: "",
-              guests: 2,
+              guests: "",
             },
           }}
           onSubmit={async (values) => {
@@ -60,7 +67,7 @@ export default function BookingForm() {
           }}
           validationSchema={FormSchema}
         >
-          {({ values, errors, touched }) => (
+          {({ values, errors, touched, onChange }) => (
             <Form
               style={{
                 display: "grid",
@@ -73,7 +80,7 @@ export default function BookingForm() {
               <label htmlFor="name">First Name</label>
               <Field
                 type="text"
-                value={values.name}
+                value={state.name}
                 id="name"
                 name="name"
                 placeholder="John Connor"
@@ -82,23 +89,21 @@ export default function BookingForm() {
 
               <label htmlFor="date">Date</label>
               <Field
-                value={values.date}
+                value={state.date}
                 type="date"
                 id="date"
                 name="date"
                 onChange={() =>
-                  dispatch({ type: "SET_DATE", payload: date.toISOString() })
+                  dispatch({
+                    type: "SET_DATE",
+                    payload: values.date,
+                  })
                 }
               />
               {errors.date && touched.date ? <div>{errors.date}</div> : null}
 
               <label htmlFor="time">Time</label>
-              <Field
-                value={values.formData.time}
-                id="time"
-                name="time"
-                as="select"
-              >
+              <Field value={state.time} id="time" name="time" as="select">
                 {state.availableTimes.map((time, index) => (
                   <option key={index} value={time}>
                     {time}

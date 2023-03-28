@@ -25,7 +25,7 @@ export const fetchData = (date, formData) => {
 // use the fetchData API function to return the available times for today’s date
 export const initializeTimes = () => {
     return {
-        availableTimes: fetchAPI("1995-12-17T03:24:00"),
+        availableTimes: fetchAPI(new Date()),
         formData:
         {
             name: '',
@@ -52,13 +52,12 @@ const updateTimes = (state, payload) => ({
 //     { type: 'SET_GUESTS', guests: '' }
 // }
 
-export function AvailableTimesReducer(availableTimesState, { type, payload }) {
-
+export function AvailableTimesReducer(state, { type, payload }) {
     switch (type) {
         case 'SET_DATE':
-            return updateTimes(availableTimesState, payload)
+            return updateTimes(state, payload)
 
         default:
-            return { ...availableTimesState }
+            return { ...state }
     }
 }

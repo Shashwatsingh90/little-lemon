@@ -1,5 +1,6 @@
 import { fetchAPI, submitAPI } from "../../utils/API";
 import { useEffect } from "react";
+import { redirect } from "react-router-dom";
 
 // const defaultTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
 
@@ -43,6 +44,13 @@ const updateTimes = (state, payload) => ({
     availableTimes: fetchAPI(new Date(payload)),
 });
 
+const handleSubmit = (formData) => {
+    const submitBool = submitAPI(formData);
+    if (submitBool) {
+        return redirect('/bookingconfirmation')
+    }
+    return "Sorry, something broke on our end. Please try again!"
+}
 
 
 // let BookingAction = {
@@ -53,10 +61,12 @@ const updateTimes = (state, payload) => ({
 // }
 
 export function AvailableTimesReducer(state, { type, payload }) {
+
     switch (type) {
         case 'SET_DATE':
             return updateTimes(state, payload)
-
+        case 'submitted':
+            return handleSubmit(payload)
         default:
             return { ...state }
     }

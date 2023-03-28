@@ -18,6 +18,8 @@ const FormSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
 });
 
+function submitForm() {}
+
 export default function BookingForm() {
   const [state, dispatch] = useReducer(
     AvailableTimesReducer,
@@ -50,7 +52,10 @@ export default function BookingForm() {
           }}
           onSubmit={async (values) => {
             await new Promise((r) => setTimeout(r, 500));
-            console.log(values);
+            dispatch({
+              type: "submitted",
+              payload: values.formData,
+            });
           }}
           validationSchema={FormSchema}
         >

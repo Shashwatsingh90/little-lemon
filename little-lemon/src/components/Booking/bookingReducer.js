@@ -1,6 +1,6 @@
 import { fetchAPI, submitAPI } from "../../utils/API";
-import { Navigate } from "react-router-dom";
-import BookingConfirmation from "../../pages/BookingConfirmation";
+import useSubmit from "../../hooks/useSubmit";
+import { redirect } from "react-router-dom";
 
 
 
@@ -37,9 +37,10 @@ const updateTimes = (state, payload) => ({
 });
 
 //Take the results from fetchData's submitAPI funciton (which should return true)
-export async function handleSubmit(formData) {
-    const submitBool = await submitAPI(formData);
-    return submitBool ? <Navigate to="/bookingconfirmation" replace={true} /> : alert('Sorry! Something broke on our end. Please trye again.')
+export async function handleSubmit(formData, navigate) {
+    const submitBool = submitAPI(formData);
+    return submitBool ? navigate('/bookingconfirmation') : alert('Sorry! Something broke on our end. Please trye again.')
+
 }
 
 // let BookingAction = {
@@ -54,8 +55,6 @@ export function AvailableTimesReducer(state, { type, payload }) {
     switch (type) {
         case 'SET_DATE':
             return updateTimes(state, payload)
-        case 'submitted':
-            return submitAPI(payload)
         default:
             return { ...state }
     }

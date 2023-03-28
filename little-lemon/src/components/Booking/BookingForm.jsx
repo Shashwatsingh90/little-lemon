@@ -6,6 +6,7 @@ import {
 } from "./BookingReducer";
 import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
+import { useNavigate } from "react-router-dom";
 
 const FormSchema = Yup.object().shape({
   name: Yup.string()
@@ -29,6 +30,7 @@ export default function BookingForm() {
     null,
     initializeTimes
   );
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -54,7 +56,7 @@ export default function BookingForm() {
             },
           }}
           onSubmit={(values) => {
-            handleSubmit(values.formData);
+            handleSubmit(values.formData, navigate);
           }}
           validationSchema={FormSchema}
         >

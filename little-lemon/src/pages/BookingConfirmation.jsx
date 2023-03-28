@@ -8,4 +8,4 @@ function BookingConfirmation() {
   );
 }
 
-export default ConfirmedBooking;
+export default BookingConfirmation;

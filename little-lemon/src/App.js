@@ -1,4 +1,3 @@
-
 import './App.css';
 import BookingPage from './components/Booking/BookingPage'
 import { Routes, Route } from 'react-router-dom';
@@ -7,6 +6,7 @@ import About from './components/About';
 import OrderOnline from './components/OrderOnline';
 import Menu from './components/Menu';
 import Login from './components/Login';
+import BookingConfirmation from './pages/BookingConfirmation';
 
 function App() {
   return (
@@ -19,6 +19,7 @@ function App() {
           <Route path='/order' element={<OrderOnline />}></Route>
           <Route path='/menu' element={<Menu />}></Route>
           <Route path='/login' element={<Login />}></Route>
+          <Route path='/bookingconfirmation' element={<BookingConfirmation />}></Route>
         </Routes>
       </main>
     </div>

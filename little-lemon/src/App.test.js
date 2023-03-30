@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, within } from "@testing-library/react";
 import BookingForm from "./components/Booking/BookingForm";
 
 
@@ -12,9 +12,9 @@ describe('BookingForm', () => {
         array.push(index + ":30");
       } return array.sort();
     }
-    const availTimes = screen.getByTestId("availTimes");
-    fireEvent.change(screen.getByLabelText(/Date/), { target: { value: 'a' } });
-    expect(availTimes).toEqual(expect.arrayContaining(possTimes));
+    const timeSelector = screen.getByLabelText(/Time/i);
+    fireEvent.change(screen.getByLabelText(/Date/), { target: { value: '1969-20-04' } });
+    expect(timeSelector).toEqual(expect.arrayContaining(array));
   });
 })
 

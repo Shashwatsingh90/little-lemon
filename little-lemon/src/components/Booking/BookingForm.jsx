@@ -34,15 +34,7 @@ export default function BookingForm({ children }) {
 
   return (
     <div>
-      <div
-        style={{
-          display: "grid",
-          gap: 20,
-          gridAutoFlow: "row",
-          alignItems: "center",
-          justifyItems: "center",
-        }}
-      >
+      <div className="formContainer">
         <h1>Make your Reservation Now</h1>
         <Formik
           initialValues={{
@@ -55,16 +47,8 @@ export default function BookingForm({ children }) {
           }}
           validationSchema={FormSchema}
         >
-          {/* try mappropstovalues https://formik.org/docs/api/withFormik#mappropstovalues-props-props--values */}
           {({ values, isValid, dirty }) => (
-            <Form
-              style={{
-                display: "grid",
-                gap: 20,
-                alignItems: "center",
-                width: "35%",
-              }}
-            >
+            <Form className="form">
               <label htmlFor="name">First Name</label>
               <Field
                 type="text"
@@ -90,25 +74,19 @@ export default function BookingForm({ children }) {
                   })
                 }
               />
-              <ErrorMessage name="date">
-                {(msg) => <div className="errorMessage">{msg}</div>}
+              <ErrorMessage className="errorMessage" name="date">
+                {(msg) => msg}
               </ErrorMessage>
 
               <label htmlFor="time">Time</label>
-              <Field
-                value={state.time}
-                id="time"
-                name="time"
-                as="select"
-                testid="time"
-              >
+              <Field value={state.time} id="time" name="time" as="select">
                 {state.availableTimes.map((time, index) => (
                   <option key={index} value={time}>
                     {time}
                   </option>
                 ))}
-                <ErrorMessage name="time">
-                  {(msg) => <div className="errorMessage">{msg}</div>}
+                <ErrorMessage className="errorMessage" name="time">
+                  {(msg) => msg}
                 </ErrorMessage>
               </Field>
 
@@ -122,8 +100,8 @@ export default function BookingForm({ children }) {
               >
                 <option value="birthday">Birthday</option>
                 <option value="anniversary">Anniversary</option>
-                <ErrorMessage name="occasion">
-                  {(msg) => <div className="errorMessage">{msg}</div>}
+                <ErrorMessage className="errorMessage" name="occasion">
+                  {(msg) => msg}
                 </ErrorMessage>
               </Field>
 

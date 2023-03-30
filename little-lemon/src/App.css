@@ -252,6 +252,20 @@ h1 {
   color: red;
 }
 
+.formContainer {
+  display: grid;
+  grid-auto-flow: row;
+  align-items: center;
+  justify-items: center;
+}
+
+.form {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+  width: 25%;
+}
+
 .about {
   display: grid;
   grid-auto-rows: auto;

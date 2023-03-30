@@ -4,9 +4,10 @@ import {
   handleSubmit,
   initializeTimes,
 } from "./BookingReducer";
-import { Formik, Field, Form } from "formik";
+import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
+import useSubmit from "../../hooks/useSubmit";
 
 const FormSchema = Yup.object().shape({
   name: Yup.string()
@@ -40,34 +41,29 @@ export default function BookingForm() {
           gap: 20,
           gridAutoFlow: "row",
           alignItems: "center",
-          justifyContent: "center",
+          justifyItems: "center",
         }}
       >
         <h1>Make your Reservation Now</h1>
         <Formik
           initialValues={{
             availableTimes: [initializeTimes.availableTimes],
-            formData: {
-              name: "",
-              date: "",
-              time: "17:00",
-              occasion: "",
-              guests: 3,
-            },
+            formData: initializeTimes.formData,
           }}
-          onSubmit={(values) => {
+          onSubmit={async (values) => {
+            await new Promise((r) => setTimeout(r, 500));
             handleSubmit(values.formData, navigate);
           }}
           validationSchema={FormSchema}
         >
-          {({ values, errors, touched, isValid, dirty }) => (
+          {/* try mappropstovalues https://formik.org/docs/api/withFormik#mappropstovalues-props-props--values */}
+          {({ values, isValid, dirty }) => (
             <Form
               style={{
                 display: "grid",
                 gap: 20,
-                gridAutoFlow: "row",
                 alignItems: "center",
-                justifyContent: "center",
+                width: "35%",
               }}
             >
               <label htmlFor="name">First Name</label>
@@ -78,7 +74,9 @@ export default function BookingForm() {
                 name="name"
                 placeholder="John Connor"
               />
-              {errors.name && touched.name ? <div>{errors.name}</div> : null}
+              <ErrorMessage name="name">
+                {(msg) => <div className="errorMessage">{msg}</div>}
+              </ErrorMessage>
 
               <label htmlFor="date">Date</label>
               <Field
@@ -93,21 +91,33 @@ export default function BookingForm() {
                   })
                 }
               />
-              {errors.date && touched.date ? <div>{errors.date}</div> : null}
+              <ErrorMessage name="date">
+                {(msg) => <div className="errorMessage">{msg}</div>}
+              </ErrorMessage>
 
               <label htmlFor="time">Time</label>
-              <Field value={state.time} id="time" name="time" as="select">
-                {state.availableTimes.map((time, index) => (
-                  <option key={index} value={time}>
-                    {time}
-                  </option>
-                ))}
-                {errors.time && touched.time ? <>{errors.time}</> : null}
+              <Field
+                value={state.time}
+                id="time"
+                name="time"
+                as="select"
+                testid="time"
+              >
+                <span testid="availTimes">
+                  {state.availableTimes.map((time, index) => (
+                    <option key={index} value={time}>
+                      {time}
+                    </option>
+                  ))}
+                </span>
+                <ErrorMessage name="time">
+                  {(msg) => <div className="errorMessage">{msg}</div>}
+                </ErrorMessage>
               </Field>
 
               <label htmlFor="occasion">Occasion</label>
               <Field
-                values={values.occasion}
+                values={state.occasion}
                 as="select"
                 id="occasion"
                 name="occasion"
@@ -115,9 +125,9 @@ export default function BookingForm() {
               >
                 <option value="birthday">Birthday</option>
                 <option value="anniversary">Anniversary</option>
-                {errors.occasion && touched.occasion ? (
-                  <>{errors.occasion}</>
-                ) : null}
+                <ErrorMessage name="occasion">
+                  {(msg) => <div className="errorMessage">{msg}</div>}
+                </ErrorMessage>
               </Field>
 
               <label htmlFor="guests">Number of Guests</label>
@@ -129,10 +139,11 @@ export default function BookingForm() {
                 min="1"
                 max="10"
               />
-              <p>{values.guests}</p>
-              <p>
-                {errors.guests && touched.guests ? <>{errors.guests}</> : null}
-              </p>
+              {values.guests}
+              <br />
+              <ErrorMessage name="guests">
+                {(msg) => <div className="errorMessage">{msg}</div>}
+              </ErrorMessage>
 
               <button type="submit" disabled={!isValid || !dirty}>
                 Book Now!
@@ -141,18 +152,6 @@ export default function BookingForm() {
           )}
         </Formik>
       </div>
-      {/* <div>
-    <h2>Existing Bookings</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat( 3, 1fr)', gap: '2.5rem' }}>
-            {bookings.map((booking, index) => (
-              <div key={index}>
-                <div>Date: <strong>{booking.date}</strong></div>
-                <div>Time: <strong>{booking.time}</strong></div>
-                <div>Guests: <strong>{booking.guests}</strong></div>
-              </div>)
-            )}
-          </div>
-      </div> */}
     </div>
   );
 }

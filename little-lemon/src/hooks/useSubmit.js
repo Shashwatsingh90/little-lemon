@@ -1,12 +1,14 @@
-// import React, { useEffect } from 'react'
+// // import React, { useEffect } from 'react'
 // import { useNavigate } from "react-router-dom";
+// import { handleSubmit } from "../components/Booking/BookingReducer";
+// import { useEffect } from "react";
 
 
 
-// function useSubmit(result) {
+// function useSubmit(formData) {
 //     const navigate = useNavigate()
 //     useEffect(() => {
-//         return result ? navigate('/bookingconfirmation') : alert('Sorry! Something broke on our end. Please trye again.')
+//         handleSubmit(formData, navigate)
 //     })
 // }
 

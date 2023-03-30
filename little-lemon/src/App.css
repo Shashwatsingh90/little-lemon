@@ -248,6 +248,10 @@ h1 {
   max-height: auto;
 }
 
+.errorMessage {
+  color: red;
+}
+
 .about {
   display: grid;
   grid-auto-rows: auto;

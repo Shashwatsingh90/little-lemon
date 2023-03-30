@@ -1,17 +1,25 @@
-import { fireEvent, render, screen } from '@testing-library/react';
-import BookingForm from './components/Booking/BookingForm';
+import { render, screen, fireEvent } from "@testing-library/react";
+import BookingForm from "./components/Booking/BookingForm";
 
-test('Renders the BookingForm heading', () => {
-  render(<BookingForm />);
-  const headingElement = screen.getByText("Book a Table");
-  expect(headingElement).toBeInTheDocument();
+
+describe('BookingForm', () => {
+  test("provides available times", () => {
+    render(<BookingForm />);
+    const array = []
+    const possTimes = () => {
+      for (let index = 17; index < 23; index++) {
+        array.push(index + ":00");
+        array.push(index + ":30");
+      } return array.sort();
+    }
+    const availTimes = screen.getByTestId("availTimes");
+    fireEvent.change(screen.getByLabelText(/Date/), { target: { value: 'a' } });
+    expect(availTimes).toEqual(expect.arrayContaining(possTimes));
+  });
 })
 
-test("Updates the time correctly", () => {
-  render(<BookingForm />);
-  const dateSelect = screen.getByLabelText(/Pick a Date/);
-  fireEvent.change(dateSelect, { target: { value: "04/20/2023" } });
-  const timeSelect = screen.getByLabelText(/Pick a Time/);
-  fireEvent.change(timeSelect, { target: { value: "17:00" } });
-  expect(timeSelect.value).toEqual("17:00");
-});
+
+
+
+
+

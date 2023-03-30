@@ -1,6 +1,7 @@
 import { fetchAPI, submitAPI } from "../../utils/API";
 import useSubmit from "../../hooks/useSubmit";
 import { redirect } from "react-router-dom";
+import { router } from "../../App";
 
 
 
@@ -25,7 +26,7 @@ export const initializeTimes = () => {
             date: '',
             time: '17:00',
             occasion: '',
-            guests: 2
+            guests: '2'
         }
     }
 }
@@ -39,7 +40,7 @@ const updateTimes = (state, payload) => ({
 //Take the results from fetchData's submitAPI funciton (which should return true)
 export async function handleSubmit(formData, navigate) {
     const submitBool = submitAPI(formData);
-    return submitBool ? navigate('/bookingconfirmation') : alert('Sorry! Something broke on our end. Please trye again.')
+    return submitBool ? router.navigate('/bookingconfirmation') : alert('Sorry! Something broke on our end. Please trye again.')
 
 }
 

@@ -58,7 +58,7 @@ function Main() {
             <section className='about'>
                 <About />
             </section>
-            <section>
+            <section className='bookingForm'>
                 <BookingForm />
             </section>
         </section>

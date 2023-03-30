@@ -15,7 +15,7 @@ import BookingConfirmation from "./pages/BookingConfirmation";
 import BookingForm from "./components/Booking/BookingForm";
 import Main from "./components/Main";
 import { useContext } from "react";
-import { navContext } from "./context/NavigateContext";
+import { NavigateContext } from "./context/NavigateContext";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -34,17 +34,19 @@ export const router = createBrowserRouter(
 );
 
 function App() {
-  const navigate = useContext(navContext);
+  const navigate = useContext(NavigateContext);
   return (
     <div className="App">
-      <HomePage />
-      <OrderOnline />
-      <About />
-      <Menu />
-      <Login />
-      <BookingPage />
-      <BookingConfirmation />
-      <BookingForm onSubmit={navigate} />
+      <NavigateContext.Provider>
+        <HomePage />
+        <OrderOnline />
+        <About />
+        <Menu />
+        <Login />
+        <BookingPage />
+        <BookingConfirmation />
+        <BookingForm onSubmit={navigate} />
+      </NavigateContext.Provider>
     </div>
   );
 }

@@ -6,7 +6,7 @@ import {
 } from "./BookingReducer";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { navContext } from "../../context/NavigateContext";
+import { NavigateContext } from "../../context/NavigateContext";
 
 const FormSchema = Yup.object().shape({
   name: Yup.string()
@@ -30,7 +30,7 @@ export default function BookingForm({ children }) {
     null,
     initializeTimes
   );
-  const navigate = useContext(navContext);
+  const navigate = useContext(NavigateContext);
 
   return (
     <div>

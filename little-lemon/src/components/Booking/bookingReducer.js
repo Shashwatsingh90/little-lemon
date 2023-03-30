@@ -44,12 +44,6 @@ export async function handleSubmit(formData, navigate) {
 
 }
 
-// let BookingAction = {
-//     { type: 'ADD_BOOKING' },
-//     { type: 'SET_TIME', time: '' },
-//     { type: 'SET_DATE', date: '' },
-//     { type: 'SET_GUESTS', guests: '' }
-// }
 
 export function AvailableTimesReducer(state, { type, payload }) {
 

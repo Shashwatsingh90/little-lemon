@@ -4,6 +4,7 @@ import {
   createBrowserRouter,
   Route,
   createRoutesFromElements,
+  useNavigate,
 } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import About from "./components/About";
@@ -13,6 +14,8 @@ import Login from "./components/Login";
 import BookingConfirmation from "./pages/BookingConfirmation";
 import BookingForm from "./components/Booking/BookingForm";
 import Main from "./components/Main";
+import { useContext } from "react";
+import { navContext } from "./context/NavigateContext";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -31,6 +34,7 @@ export const router = createBrowserRouter(
 );
 
 function App() {
+  const navigate = useContext(navContext);
   return (
     <div className="App">
       <HomePage />
@@ -40,7 +44,7 @@ function App() {
       <Login />
       <BookingPage />
       <BookingConfirmation />
-      <BookingForm />
+      <BookingForm onSubmit={navigate} />
     </div>
   );
 }

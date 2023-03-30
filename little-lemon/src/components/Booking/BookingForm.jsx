@@ -1,4 +1,4 @@
-import { React, useReducer, useState } from "react";
+import { React, useReducer, useContext } from "react";
 import {
   AvailableTimesReducer,
   handleSubmit,
@@ -6,8 +6,7 @@ import {
 } from "./BookingReducer";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { useNavigate } from "react-router-dom";
-import useSubmit from "../../hooks/useSubmit";
+import { navContext } from "../../context/NavigateContext";
 
 const FormSchema = Yup.object().shape({
   name: Yup.string()
@@ -25,13 +24,13 @@ const FormSchema = Yup.object().shape({
     .required("Required"),
 });
 
-export default function BookingForm() {
+export default function BookingForm({ children }) {
   const [state, dispatch] = useReducer(
     AvailableTimesReducer,
     null,
     initializeTimes
   );
-  const navigate = useNavigate();
+  const navigate = useContext(navContext);
 
   return (
     <div>
@@ -103,13 +102,11 @@ export default function BookingForm() {
                 as="select"
                 testid="time"
               >
-                <span testid="availTimes">
-                  {state.availableTimes.map((time, index) => (
-                    <option key={index} value={time}>
-                      {time}
-                    </option>
-                  ))}
-                </span>
+                {state.availableTimes.map((time, index) => (
+                  <option key={index} value={time}>
+                    {time}
+                  </option>
+                ))}
                 <ErrorMessage name="time">
                   {(msg) => <div className="errorMessage">{msg}</div>}
                 </ErrorMessage>
@@ -144,7 +141,6 @@ export default function BookingForm() {
               <ErrorMessage name="guests">
                 {(msg) => <div className="errorMessage">{msg}</div>}
               </ErrorMessage>
-
               <button type="submit" disabled={!isValid || !dirty}>
                 Book Now!
               </button>

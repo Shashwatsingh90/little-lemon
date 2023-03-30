@@ -4,7 +4,6 @@ import {
   createBrowserRouter,
   Route,
   createRoutesFromElements,
-  useNavigate,
 } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import About from "./components/About";

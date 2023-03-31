@@ -1,6 +1,4 @@
 import { fetchAPI, submitAPI } from "../../utils/API";
-import useSubmit from "../../hooks/useSubmit";
-import { redirect } from "react-router-dom";
 import { router } from "../../App";
 
 

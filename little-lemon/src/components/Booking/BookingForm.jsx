@@ -56,6 +56,7 @@ export default function BookingForm({ children }) {
                 id="name"
                 name="name"
                 placeholder="John Connor"
+                data-testid="name"
               />
               <ErrorMessage name="name">
                 {(msg) => <div className="errorMessage">{msg}</div>}
@@ -65,8 +66,10 @@ export default function BookingForm({ children }) {
               <Field
                 value={state.date}
                 type="date"
+                as="select"
                 id="date"
                 name="date"
+                data-testid="date"
                 onChange={(e) =>
                   dispatch({
                     type: "SET_DATE",
@@ -79,7 +82,13 @@ export default function BookingForm({ children }) {
               </ErrorMessage>
 
               <label htmlFor="time">Time</label>
-              <Field value={state.time} id="time" name="time" as="select">
+              <Field
+                value={state.time}
+                id="time"
+                name="time"
+                as="select"
+                data-testid="time"
+              >
                 {state.availableTimes.map((time, index) => (
                   <option key={index} value={time}>
                     {time}
@@ -97,6 +106,7 @@ export default function BookingForm({ children }) {
                 id="occasion"
                 name="occasion"
                 multiple={false}
+                data-testid="occasion"
               >
                 <option value="birthday">Birthday</option>
                 <option value="anniversary">Anniversary</option>
@@ -113,13 +123,19 @@ export default function BookingForm({ children }) {
                 name="guests"
                 min="1"
                 max="10"
+                data-testid="guests"
               />
               {values.guests}
               <br />
               <ErrorMessage name="guests">
                 {(msg) => <div className="errorMessage">{msg}</div>}
               </ErrorMessage>
-              <button type="submit" disabled={!isValid || !dirty}>
+              <button
+                name="submitButton"
+                type="submit"
+                disabled={!isValid || !dirty}
+                data-testid="button"
+              >
                 Book Now!
               </button>
             </Form>

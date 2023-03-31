@@ -1,5 +1,7 @@
-import { render, screen, fireEvent, within } from "@testing-library/react";
+import { render, screen, fireEvent, within, waitFor } from "@testing-library/react";
 import BookingForm from "./components/Booking/BookingForm";
+import userEvent from '@testing-library/user-event';
+
 
 
 describe('BookingForm', () => {
@@ -29,10 +31,28 @@ describe('BookingForm', () => {
       initTime => returnedTimes.includes(initTime)
     )).toBe(true);
   });
+
+  test('rendering and submitting a basic Formik form', async () => {
+    const handleSubmit = jest.fn()
+    render(<BookingForm onSubmit={handleSubmit} />)
+    const user = userEvent.setup()
+
+    await user.type(screen.getByRole("textbox", { name: /name/i }), 'John')
+    await user.type(screen.getByRole("combobox", { name: /date/i }), '1969-20-04')
+    await user.type(screen.getByRole("combobox", { name: /time/i }), '17:00')
+    await user.type(screen.getByRole("combobox", { name: /occasion/i }), 'Birthday')
+    await user.type(screen.getByRole("slider", { name: /guests/i }), '5')
+
+    await user.click(screen.getByRole("button", { name: /book now!/i }))
+
+    await waitFor(() =>
+      expect(handleSubmit).toHaveBeenCalledWith({
+        name: 'John',
+        date: '1969-20-04',
+        time: '17:00',
+        occasion: 'Birthday',
+        guests: '5'
+      }),
+    )
+  })
 })
-
-
-
-
-
-

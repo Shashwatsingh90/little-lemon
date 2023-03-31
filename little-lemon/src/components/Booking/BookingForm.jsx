@@ -48,7 +48,7 @@ export default function BookingForm({ onSubmit }) {
             await new Promise((r) => setTimeout(r, 500));
             handleSubmit(values.formData, navigate);
           }}
-          validator={() => ({})}
+          validationSchema={FormSchema}
         >
           {({ values, isSubmitting, isValid, dirty }) => (
             <Form className="form">

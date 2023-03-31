@@ -1,5 +1,6 @@
 import { render, screen, fireEvent, within, waitFor } from "@testing-library/react";
 import BookingForm from "./components/Booking/BookingForm";
+import BookingFormTest from "./components/Booking/BookingFormTest";
 import userEvent from '@testing-library/user-event';
 
 describe('BookingForm', () => {
@@ -33,7 +34,7 @@ describe('BookingForm', () => {
   test('rendering and submitting a basic Formik form', async () => {
     const handleSubmit = jest.fn()
     const user = userEvent.setup()
-    render(<BookingForm onSubmit={handleSubmit} />)
+    render(<BookingFormTest onSubmit={handleSubmit} />)
 
     await user.type(screen.getByRole("textbox", { name: /name/i }), 'John')
     await user.type(screen.getByLabelText(/Date/), '1969-20-04');

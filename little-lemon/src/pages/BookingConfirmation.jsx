@@ -1,9 +1,11 @@
 import React from "react";
+import Nav from "../components/Nav";
 
 function BookingConfirmation() {
   return (
     <div>
-      <p>Your booking has been confirmed!</p>
+      <Nav />
+      <h1 style={{ textAlign: "center" }}>Your booking has been confirmed!</h1>
     </div>
   );
 }

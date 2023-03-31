@@ -38,7 +38,7 @@ export default function BookingFormTest({ onSubmit }) {
           handleSubmit(values.formData, navigate);
           setSubmitting(false);
         }}
-        validationSchema={FormSchema}
+        validator={() => {}}
       >
         {({ values, isValid, dirty, submitForm }) => (
           <Form onSubmit={handleSubmit} className="form">

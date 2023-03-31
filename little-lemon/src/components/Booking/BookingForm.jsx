@@ -66,7 +66,7 @@ export default function BookingForm({ children }) {
               <Field
                 value={state.date}
                 type="date"
-                as="input"
+                role="input"
                 id="date"
                 name="date"
                 data-testid="date"

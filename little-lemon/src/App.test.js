@@ -38,7 +38,7 @@ describe('BookingForm', () => {
     const user = userEvent.setup()
 
     await user.type(screen.getByRole("textbox", { name: /name/i }), 'John')
-    await user.type(screen.getByRole("combobox", { name: /date/i }), '1969-20-04')
+    await user.click(screen.getByLabelText(/date/i, { name: /date/i }), '1969-20-04')
     await user.type(screen.getByRole("combobox", { name: /time/i }), '17:00')
     await user.type(screen.getByRole("combobox", { name: /occasion/i }), 'Birthday')
     await user.type(screen.getByRole("slider", { name: /guests/i }), '5')

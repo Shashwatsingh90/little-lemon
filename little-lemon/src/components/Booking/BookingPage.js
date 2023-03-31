@@ -1,10 +1,11 @@
 import React from 'react'
 import BookingForm from './BookingForm'
+import { handleSubmit } from './bookingReducer'
 
 function BookingPage() {
     return (
         <div>
-            <BookingForm />
+            <BookingForm onSubmit={handleSubmit} />
         </div>
     )
 }

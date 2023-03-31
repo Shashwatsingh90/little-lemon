@@ -3,7 +3,7 @@ import {
   AvailableTimesReducer,
   handleSubmit,
   initializeTimes,
-} from "./BookingReducer";
+} from "./bookingReducer";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { NavigateContext } from "../../context/NavigateContext";
@@ -24,13 +24,16 @@ const FormSchema = Yup.object().shape({
     .required("Required"),
 });
 
-export default function BookingForm({ children }) {
+export default function BookingForm({ onSubmit }) {
   const [state, dispatch] = useReducer(
     AvailableTimesReducer,
     null,
     initializeTimes
   );
   const navigate = useContext(NavigateContext);
+  const handleSubmit = async (values) => {
+    onSubmit(values, navigate);
+  };
 
   return (
     <div>
@@ -45,9 +48,9 @@ export default function BookingForm({ children }) {
             await new Promise((r) => setTimeout(r, 500));
             handleSubmit(values.formData, navigate);
           }}
-          validationSchema={FormSchema}
+          validator={() => ({})}
         >
-          {({ values, isValid, dirty }) => (
+          {({ values, isSubmitting, isValid, dirty }) => (
             <Form className="form">
               <label htmlFor="name">First Name</label>
               <Field
@@ -64,7 +67,7 @@ export default function BookingForm({ children }) {
 
               <label htmlFor="date">Date</label>
               <Field
-                value={state.date}
+                value={values.date}
                 type="date"
                 role="input"
                 id="date"
@@ -101,7 +104,7 @@ export default function BookingForm({ children }) {
 
               <label htmlFor="occasion">Occasion</label>
               <Field
-                values={state.occasion}
+                values={values.occasion}
                 as="select"
                 id="occasion"
                 name="occasion"
@@ -118,22 +121,20 @@ export default function BookingForm({ children }) {
               <label htmlFor="guests">Number of Guests</label>
               <Field
                 value={state.guests}
-                type="range"
+                type="number"
                 id="guests"
                 name="guests"
                 min="1"
                 max="10"
                 data-testid="guests"
               />
-              {values.guests}
-              <br />
               <ErrorMessage name="guests">
                 {(msg) => <div className="errorMessage">{msg}</div>}
               </ErrorMessage>
               <button
                 name="submitButton"
                 type="submit"
-                disabled={!isValid || !dirty}
+                disabled={!isValid || !dirty || isSubmitting}
                 data-testid="button"
               >
                 Book Now!

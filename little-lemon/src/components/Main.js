@@ -7,6 +7,7 @@ import Card from './Card';
 import Testimonials from './Testimonials';
 import About from './About'
 import BookingForm from './Booking/BookingForm';
+import { handleSubmit } from './Booking/bookingReducer';
 
 const specials = [
     {
@@ -59,7 +60,7 @@ function Main() {
                 <About />
             </section>
             <section className='bookingForm'>
-                <BookingForm />
+                <BookingForm onSubmit={handleSubmit} />
             </section>
         </section>
     )

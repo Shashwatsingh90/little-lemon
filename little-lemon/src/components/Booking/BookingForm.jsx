@@ -136,6 +136,7 @@ export default function BookingForm({ onSubmit }) {
                 type="submit"
                 disabled={!isValid || !dirty || isSubmitting}
                 data-testid="button"
+                aria-label="On Click"
               >
                 Book Now!
               </button>

@@ -1,7 +1,7 @@
 # little-lemon
 Capstone project for <a href="https://www.coursera.org/professional-certificates/meta-front-end-developer?skipBrowseRedirect=true" target="_blank">Meta's Front End certification on Coursera</a>.
 
-<h2>This is <em>React</em> project created with:</h2>
+<h2>This is a <em>React</em> project created with:</h2>
 <ul>
 <li><a href="https://create-react-app.dev/" target="_blank">Create React App</a></li>
 <li><a href="https://nodejs.org/en/about" target="_blank">Node.js</a></li>

@@ -257,6 +257,7 @@ h1 {
   grid-auto-flow: row;
   align-items: center;
   justify-items: center;
+  margin: 2rem;
 }
 
 .form {

@@ -9,7 +9,8 @@ function Header() {
             <div className='header-left'>
                 <h1>Little Lemon</h1>
                 <h2 id='headerH2'>Chicago</h2>
-                <p align='left'>Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p align='left'>This is a hand-crafted site built as a Capstone Project by T.C. Cox for Meta's Front-End Developer Professional Certification.</p>
+                <p>Some of the pages are simply skeletons to demonstrate the structure of a restaurant site.</p>
                 <Button>Reserve Now!</Button>
             </div>
             <div className='header-right'>

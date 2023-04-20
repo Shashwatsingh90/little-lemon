@@ -12,7 +12,7 @@ function Nav() {
                 <li><NavLink to='/booking'>Reservations</NavLink></li>
                 <li><Link to='/menu'>Menu</Link></li>
                 <li><Link to='/order'>Order Online</Link></li>
-                <li><Link to='/login'>Login</Link></li>
+                <li><Link to='/design'>Design</Link></li>
             </ul>
         </nav>
     )

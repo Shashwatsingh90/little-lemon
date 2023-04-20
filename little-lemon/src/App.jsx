@@ -9,12 +9,13 @@ import HomePage from "./components/HomePage";
 import About from "./components/About";
 import OrderOnline from "./components/OrderOnline";
 import Menu from "./components/Menu";
-import Login from "./components/Login";
+// import Login from "./components/Login";
 import BookingConfirmation from "./pages/BookingConfirmation";
 import BookingForm from "./components/Booking/BookingForm";
 import Main from "./components/Main";
 import { useContext } from "react";
 import { NavigateContext } from "./context/NavigateContext";
+import Design from "./components/Design";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,7 +24,7 @@ export const router = createBrowserRouter(
       <Route path="order" element={<OrderOnline />} />
       <Route path="about" element={<About />} />
       <Route path="menu" element={<Menu />} />
-      <Route path="login" element={<Login />} />
+      <Route path="design" element={<Design />} />
       <Route path="main" element={<Main />} />
       <Route path="booking" element={<BookingPage />} />
       <Route path="bookingform" element={<BookingForm />} />
@@ -41,7 +42,7 @@ function App() {
         <OrderOnline />
         <About />
         <Menu />
-        <Login />
+        <Design />
         <BookingPage />
         <BookingConfirmation />
         <BookingForm onSubmit={navigate} />

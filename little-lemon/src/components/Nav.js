@@ -10,9 +10,9 @@ function Nav() {
                 <li><Link to='/'>Home Page</Link></li>
                 <li><Link to='/about'>About</Link></li>
                 <li><NavLink to='/booking'>Reservations</NavLink></li>
-                <li><Link to='/menu'>Menu</Link></li>
+                <li><Link to='https://github.com/thmscly/little-lemon.git' rel="noopener noreferrer" target="_blank">Source Code</Link></li>
                 <li><Link to='/order'>Order Online</Link></li>
-                <li><Link to='/design'>Design</Link></li>
+                <li>Nav<Link to='/design'>Design</Link></li>
             </ul>
         </nav>
     )

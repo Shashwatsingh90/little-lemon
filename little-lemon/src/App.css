@@ -376,7 +376,6 @@ element.style {
   .header-right img {
     margin-top: -20%;
     align-self: start;
-}
   }
   #testimonials {
     flex-wrap: wrap;
@@ -389,7 +388,8 @@ element.style {
     display: flex;
     flex-wrap: wrap;
   }
-  footer {
+  .main {
+    margin-top: 20%;
   }
   #about img {
     max-width: 100%;

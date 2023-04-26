@@ -72,10 +72,10 @@ ul {
 
 .header {
   background-color: #495e57;
-  min-height: 45vh;
+  height: 75vh;
   display: flex;
   grid-template-columns: repeat(2, 1fr);
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-evenly;
   color: white;
   padding-right: 25%;
@@ -90,7 +90,7 @@ ul {
 
 .header-right {
   display: grid;
-  border-radius: 3rem;
+
   height: 75%;
   width: 100%;
   margin-bottom: -5rem;
@@ -98,7 +98,7 @@ ul {
 
 .header-right img {
   border-radius: 3rem;
-  height: 20rem;
+  height: 5%;
   justify-self: end;
 }
 
@@ -365,6 +365,18 @@ element.style {
   .header {
     padding: 5%;
     align-items: none;
+    flex-wrap: wrap;
+    max-height: 50vh;
+  }
+  .header-right {
+    justify-content: end;
+    height: 100%;
+    width: 100%;
+  }
+  .header-right img {
+    margin-top: -20%;
+    align-self: start;
+}
   }
   #testimonials {
     flex-wrap: wrap;

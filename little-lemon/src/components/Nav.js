@@ -13,7 +13,7 @@ function Nav() {
                 <li><NavLink to='/booking'>Reservations</NavLink></li>
                 <li><Link to='https://github.com/thmscly/little-lemon.git' rel="noopener noreferrer" target="_blank">Source Code</Link></li>
                 <li><Link to='/order'>Order Online</Link></li>
-                <li>Nav<Link to='/design'>Design</Link></li>
+                <li><Link to='/design'>Design</Link></li>
             </ul>
         </nav>
     )

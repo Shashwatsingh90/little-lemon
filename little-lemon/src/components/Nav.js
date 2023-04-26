@@ -2,6 +2,7 @@ import React from 'react';
 import logo from '../icons_assets/Logo.svg'
 import { NavLink, Link } from 'react-router-dom';
 
+
 function Nav() {
     return (
         <nav className='nav'>

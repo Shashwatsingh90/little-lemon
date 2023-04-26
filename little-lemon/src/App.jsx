@@ -36,7 +36,7 @@ export const router = createBrowserRouter(
 function App() {
   const navigate = useContext(NavigateContext);
   return (
-    <div className="App">
+    <span className="App">
       <NavigateContext.Provider>
         <HomePage />
         <OrderOnline />
@@ -47,7 +47,7 @@ function App() {
         <BookingConfirmation />
         <BookingForm onSubmit={navigate} />
       </NavigateContext.Provider>
-    </div>
+    </span>
   );
 }
 
